@@ -1,11 +1,11 @@
 package m9.arraylist;
 
-import m9.MyAbstractList;
+import m9.MyAbstractArrayList;
 import m9.MyList;
 
 import java.util.Arrays;
 
-public class MyArrayList<E> extends MyAbstractList<E> implements MyList<E> {
+public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> {
     private Object[] arrList;
     private int countUsedCell = 0;
 
