@@ -2,7 +2,7 @@ package m9.linkedlist;
 
 import m9.MyList;
 
-public class MaLinkedListTest {
+public class MyLinkedListTest {
     public static void main(String[] args) {
         MyList<String> strMyLinkedList = new MyLinkedList<>();
         MyList<Integer> intMyLinkedList = new MyLinkedList<>();
