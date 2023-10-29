@@ -1,6 +1,5 @@
 package m9.arraylist;
 
-import m9.MyAbstractArrayList;
 import m9.MyList;
 
 import java.util.Arrays;

@@ -1,23 +1,24 @@
 package m9.linkedlist;
 
-import m9.MyAbstractLinkedList;
+import m9.MyDeque;
 import m9.MyList;
+import m9.MyQueue;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E> {
+public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E>, MyDeque<E> {
     private int size;
     private Node<E> first;
     private Node<E> last;
 
+    public MyLinkedList() {
+        this.size = 0;
+    }
+
     public boolean add(E element) {
         addTail(element);
         return true;
-    }
-
-    public MyLinkedList() {
-        this.size = 0;
     }
 
     private void addHead(E element) {
@@ -42,29 +43,37 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     }
 
     public boolean remove(int index) {
-        Node<E> current = getByIndex(index);
-        Node<E> next = current.next;
-        Node<E> prev = current.prev;
+        Node<E> node = getByIndex(index);
+        return node != null && removeNode(node);
+    }
+
+    private boolean removeNode(Node<E> node) {
+        Node<E> next = node.next;
+        Node<E> prev = node.prev;
         if (prev == null) {
             first = next;
         } else {
             prev.next = next;
-            current.prev = null;
+            node.prev = null;
         }
 
         if (next == null) {
             last = prev;
         } else {
             next.prev = prev;
-            current.next = null;
+            node.next = null;
         }
 
-        current.item = null;
+        node.item = null;
         size--;
+
         return true;
     }
 
     public boolean clear() {
+        if (size <= 0) {
+            return false;
+        }
         Node<E> curr = last;
         Node<E> xPrev = curr.prev;
         while (size > 0) {
@@ -86,13 +95,14 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     }
 
     public E get(int index) {
-        if (index >= 0 && index < size) {
-            return getByIndex(index).item;
-        }
-        return null;
+        Node<E> node = getByIndex(index);
+        return node != null ? node.item : null;
     }
 
     private Node<E> getByIndex(int index) {
+        if (index < 0 || index > size) {
+            return null;
+        }
         Node<E> x;
         int i;
         if (index < this.size >> 1) {
@@ -109,6 +119,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
             return x;
         }
     }
+
     public Object[] toArray() {
         if (size == 0) {
             return new Object[0];
@@ -125,6 +136,26 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     public String toString() {
         return "{ " + Arrays.toString(toArray()) + " }";
     }
+
+    public E peek() {
+        return getFirstNode() != null ? getFirstNode().item : null;
+    }
+
+    public E poll() {
+        if (getFirstNode() != null) {
+            E element = getFirstNode().item;
+            if (!removeNode(getFirstNode())) {
+                return null;
+            }
+            return element;
+        }
+        return null;
+    }
+
+    private Node<E> getFirstNode() {
+        return this.first;
+    }
+
     private static class Node<E> {
         E item;
         Node<E> next;
