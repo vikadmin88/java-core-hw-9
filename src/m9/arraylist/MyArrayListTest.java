@@ -19,8 +19,14 @@ public class MyArrayListTest {
         System.out.println("intArrayList.size() = " + intArrayList.size());
 
         // Add new elements to array-list to test expandable
-        System.out.println("\nAdd 20 new String elements:");
-        for (char i = 65; i <= 85; i++) {
+        System.out.println("\nAdd 10 new String elements:");
+        for (char i = 65; i <= 75; i++) {
+            strArrayList.add(String.valueOf(i).repeat(4));
+        }
+        System.out.println("strArrayList = " + strArrayList);
+        System.out.println("strArrayList.size() = " + strArrayList.size());
+        System.out.println("\nAdd next 10 new String elements:");
+        for (char i = 76; i <= 85; i++) {
             strArrayList.add(String.valueOf(i).repeat(4));
         }
         System.out.println("strArrayList = " + strArrayList);
@@ -44,6 +50,7 @@ public class MyArrayListTest {
         for (int i = 0; i <= 30; i += 7) {
             System.out.printf("intArrayList.get(%d) = %s\n", i, intArrayList.get(i));
         }
+        System.out.printf("intArrayList.get(%d) = %s\n", 1000, intArrayList.get(1000));
 
         // Remove some String elements
         System.out.println("\nRemove some String elements:");

@@ -1,13 +1,11 @@
 package m9.linkedlist;
 
-import m9.MyDeque;
 import m9.MyList;
 import m9.MyQueue;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
-public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E>, MyDeque<E> {
+public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E> {
     private int size;
     private Node<E> first;
     private Node<E> last;
@@ -21,7 +19,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
         return true;
     }
 
-    private void addHead(E element) {
+    protected void addHead(E element) {
         Node<E> newNode = new Node<E>(null, element, first);
         if (first == null) {
             first = last = newNode;
@@ -31,7 +29,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
         }
         size++;
     }
-    private void addTail(E element) {
+    protected void addTail(E element) {
         Node<E> newNode = new Node<E>(last, element, null);
         if (last == null) {
             first = last = newNode;
@@ -47,7 +45,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
         return node != null && removeNode(node);
     }
 
-    private boolean removeNode(Node<E> node) {
+    protected boolean removeNode(Node<E> node) {
         Node<E> next = node.next;
         Node<E> prev = node.prev;
         if (prev == null) {
@@ -137,26 +135,29 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
         return "{ " + Arrays.toString(toArray()) + " }";
     }
 
-    public E peek() {
-        return getFirstNode() != null ? getFirstNode().item : null;
-    }
+//    public E peek() {
+//        return getFirstNode() != null ? getFirstNode().item : null;
+//    }
 
-    public E poll() {
-        if (getFirstNode() != null) {
-            E element = getFirstNode().item;
-            if (!removeNode(getFirstNode())) {
-                return null;
-            }
-            return element;
-        }
-        return null;
-    }
+//    public E poll() {
+//        if (getFirstNode() != null) {
+//            E element = getFirstNode().item;
+//            if (!removeNode(getFirstNode())) {
+//                return null;
+//            }
+//            return element;
+//        }
+//        return null;
+//    }
 
-    private Node<E> getFirstNode() {
+    protected Node<E> getFirstNode() {
         return this.first;
     }
+    protected Node<E> getLastNode() {
+        return this.last;
+    }
 
-    private static class Node<E> {
+    protected static class Node<E> {
         E item;
         Node<E> next;
         Node<E> prev;

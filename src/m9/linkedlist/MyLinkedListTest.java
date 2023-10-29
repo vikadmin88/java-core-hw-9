@@ -6,6 +6,7 @@ public class MyLinkedListTest {
     public static void main(String[] args) {
         MyList<String> strMyLinkedList = new MyLinkedList<>();
         MyList<Integer> intMyLinkedList = new MyLinkedList<>();
+
         System.out.println("Created 2 lists: strMyLinkedList, intMyLinkedList");
         System.out.printf("strMyLinkedList = %s Size: %d\n", strMyLinkedList, strMyLinkedList.size());
         System.out.printf("intMyLinkedList = %s Size: %d\n", intMyLinkedList, intMyLinkedList.size());

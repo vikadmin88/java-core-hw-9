@@ -19,6 +19,9 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     }
 
     public E get(int index) {
+        if (index < 0 || index > arrList.length - 1) {
+            return null;
+        }
         return (E) arrList[index];
     }
 
@@ -59,7 +62,7 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     private boolean addElement(E element) {
         for (int i = 0; i < arrList.length; i++) {
             if (arrList[i] == null) {
-                arrList[i] = element;
+                arrList[i] = (E) element;
                 countUsedCell++;
                 return true;
             }
