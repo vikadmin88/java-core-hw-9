@@ -20,7 +20,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     }
 
     protected void addHead(E element) {
-        Node<E> newNode = new Node<E>(null, element, first);
+        Node<E> newNode = new Node<>(null, element, first);
         if (first == null) {
             first = last = newNode;
         } else {
@@ -30,7 +30,7 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
         size++;
     }
     protected void addTail(E element) {
-        Node<E> newNode = new Node<E>(last, element, null);
+        Node<E> newNode = new Node<>(last, element, null);
         if (last == null) {
             first = last = newNode;
         } else {
@@ -46,6 +46,9 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     }
 
     protected boolean removeNode(Node<E> node) {
+        if (node == null) {
+            return false;
+        }
         Node<E> next = node.next;
         Node<E> prev = node.prev;
         if (prev == null) {
@@ -166,6 +169,9 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
             this.item = element;
             this.next = next;
             this.prev = prev;
+        }
+        E getItem() {
+            return this.item;
         }
     }
 }

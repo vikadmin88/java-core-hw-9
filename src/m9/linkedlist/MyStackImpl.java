@@ -16,18 +16,12 @@ public class MyStackImpl<E> extends MyLinkedList<E> implements MyStack<E> {
 
     @Override
     public E pop() {
-        if (getLastNode() == null) {
-            return null;
-        }
-        E element = getLastNode().item;
-        if (!removeNode(getLastNode())) {
-            return null;
-        }
-        return element;
+        E element = getLastNode() != null ? getLastNode().getItem() : null;
+        return removeNode(getLastNode()) ? element : null;
     }
 
     @Override
     public E peek() {
-        return getLastNode() != null ? getLastNode().item : null;
+        return getLastNode() != null ? getLastNode().getItem() : null;
     }
 }

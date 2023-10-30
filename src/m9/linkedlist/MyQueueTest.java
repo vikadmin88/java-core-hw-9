@@ -6,7 +6,7 @@ public class MyQueueTest {
     public static void main(String[] args) {
         MyQueue<String> strMyQueue = new MyQueueImpl<>();
         MyQueue<Integer> intMyQueue = new MyQueueImpl<>();
-
+//        intMyQueue.
         System.out.println("Created 2 lists: strMyQueue, intMyQueue");
         System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
         System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
@@ -33,35 +33,27 @@ public class MyQueueTest {
         System.out.println();
 
         System.out.println("Peek (FIFO) nodes:");
-        System.out.println("strMyQueue.peek() = " + strMyQueue.peek());
-        System.out.println("strMyQueue.peek() = " + strMyQueue.peek());
-        System.out.println("strMyQueue.peek() = " + strMyQueue.peek());
-        System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
+        for (int j = 0; j < 3; j++) {
+            System.out.println("strMyQueue.peek() = " + strMyQueue.peek());
+            System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
+        }
         System.out.println();
-        System.out.println("intMyQueue.peek() = " + intMyQueue.peek());
-        System.out.println("intMyQueue.peek() = " + intMyQueue.peek());
-        System.out.println("intMyQueue.peek() = " + intMyQueue.peek());
-        System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
+        for (int j = 0; j < 3; j++) {
+            System.out.println("intMyQueue.peek() = " + intMyQueue.peek());
+            System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
+        }
         System.out.println();
 
         System.out.println("Poll (FIFO) nodes:");
-        System.out.println("strMyQueue.poll() = " + strMyQueue.poll());
-        System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
-        System.out.println("strMyQueue.poll() = " + strMyQueue.poll());
-        System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
-        System.out.println("strMyQueue.poll() = " + strMyQueue.poll());
-        System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
+        for (int i = 0; i < 7; i++) {
+            System.out.println("strMyQueue.poll() = " + strMyQueue.poll());
+            System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
+        }
         System.out.println();
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
-        System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
+        for (int i = 0; i < 7; i++) {
+            System.out.println("intMyQueue.poll() = " + intMyQueue.poll());
+            System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
+        }
         System.out.println();
 
         System.out.println("Clear all nodes:");

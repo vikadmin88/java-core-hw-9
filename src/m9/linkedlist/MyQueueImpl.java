@@ -10,19 +10,13 @@ public class MyQueueImpl<E> extends MyLinkedList<E> implements MyQueue<E> {
 
     @Override
     public E poll() {
-        if (getFirstNode() == null) {
-            return null;
-        }
-        E element = getFirstNode().item;
-        if (!removeNode(getFirstNode())) {
-            return null;
-        }
-        return element;
+        E element = getFirstNode() != null ? getFirstNode().getItem() : null;
+        return removeNode(getFirstNode()) ? element : null;
     }
 
     @Override
     public E peek() {
-        return getFirstNode() != null ? getFirstNode().item : null;
+        return getFirstNode() != null ? getFirstNode().getItem() : null;
     }
 
 }

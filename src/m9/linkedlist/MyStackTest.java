@@ -33,35 +33,27 @@ public class MyStackTest {
         System.out.println();
 
         System.out.println("Peek (LIFO) nodes:");
-        System.out.println("strMyStack.peek() = " + strMyStack.peek());
-        System.out.println("strMyStack.peek() = " + strMyStack.peek());
-        System.out.println("strMyStack.peek() = " + strMyStack.peek());
+        for (int i = 0; i < 3; i++) {
+            System.out.println("strMyStack.peek() = " + strMyStack.peek());
+        }
         System.out.printf("strMyStack = %s Size: %d\n", strMyStack, strMyStack.size());
         System.out.println();
-        System.out.println("intMyStack.peek() = " + intMyStack.peek());
-        System.out.println("intMyStack.peek() = " + intMyStack.peek());
-        System.out.println("intMyStack.peek() = " + intMyStack.peek());
+        for (int i = 0; i < 3; i++) {
+            System.out.println("intMyStack.peek() = " + intMyStack.peek());
+        }
         System.out.printf("intMyStack = %s Size: %d\n", intMyStack, intMyStack.size());
         System.out.println();
 
         System.out.println("Pop (LIFO) nodes:");
-        System.out.println("strMyStack.poll() = " + strMyStack.pop());
-        System.out.printf("strMyStack = %s Size: %d\n", strMyStack, strMyStack.size());
-        System.out.println("strMyStack.poll() = " + strMyStack.pop());
-        System.out.printf("strMyStack = %s Size: %d\n", strMyStack, strMyStack.size());
-        System.out.println("strMyStack.poll() = " + strMyStack.pop());
-        System.out.printf("strMyStack = %s Size: %d\n", strMyStack, strMyStack.size());
+        for (int i = 0; i < 7; i++) {
+            System.out.println("strMyStack.poll() = " + strMyStack.pop());
+            System.out.printf("strMyStack = %s Size: %d\n", strMyStack, strMyStack.size());
+        }
         System.out.println();
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.printf("intMyStack = %s Size: %d\n", intMyStack, intMyStack.size());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.printf("intMyStack = %s Size: %d\n", intMyStack, intMyStack.size());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.println("intMyStack.poll() = " + intMyStack.pop());
-        System.out.printf("intMyStack = %s Size: %d\n", intMyStack, intMyStack.size());
+        for (int i = 0; i < 7; i++) {
+            System.out.println("intMyStack.poll() = " + intMyStack.pop());
+            System.out.printf("intMyStack = %s Size: %d\n", intMyStack, intMyStack.size());
+        }
         System.out.println();
 
         System.out.println("Clear all nodes:");
