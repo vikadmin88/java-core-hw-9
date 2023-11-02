@@ -24,10 +24,10 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     @Override
     public boolean put(K key, V value) {
         addEntry(key, value);
-        return false;
+        return true;
     }
 
-    private void addEntry(K key, V value) {
+    private Entry<K, V> addEntry(K key, V value) {
         int bucket = getBucketNumByHash(key);
         Entry<K, V> newEntry = new Entry<>(key, value, null);
 
@@ -37,6 +37,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
         } else {
             addNewOrReplace(bucket, newEntry);
         }
+        return newEntry;
     }
 
     private void addNewOrReplace(int bucket, Entry<K,V> newEntry) {
