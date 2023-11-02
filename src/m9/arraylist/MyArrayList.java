@@ -9,12 +9,10 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     private int countUsedCell = 0;
 
     public MyArrayList() {
-        this(0);
+        this(10);
     }
     public MyArrayList(int length) {
-        if (length < 0) {
-            length = 0;
-        }
+        length = length <= 0 ? 10 : length;
         this.arrList = new Object[length];
     }
 
@@ -30,7 +28,7 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     }
 
     public boolean remove(int index) {
-        if (arrList[index] != null) {
+        if (index <= countUsedCell -1 && arrList[index] != null) {
             arrList[index] = null;
             countUsedCell--;
             return true;
@@ -41,21 +39,21 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     public boolean clear() {
         this.arrList = new Object[0];
         countUsedCell = 0;
-        return false;
+        return true;
     }
     public boolean add(E element) {
         // check/expand arrList
-        processingArraySize();
+        checkArraySize();
         return addElement(element);
     }
 
-    private void processingArraySize() {
-        if (arrList.length < (countUsedCell + 1)) {
+    private void checkArraySize() {
+        if (arrList.length == countUsedCell) {
             int newSize = arrList.length * 3 / 2 + arrList.length;
-            this.arrList = expandArray(arrList, newSize);
+            this.arrList = growArray(arrList, newSize);
         }
     }
-    private Object[] expandArray(Object[] currentArr, int newSize) {
+    private Object[] growArray(Object[] currentArr, int newSize) {
         return Arrays.copyOf(currentArr, newSize);
     }
 

@@ -6,7 +6,7 @@ public class MyQueueTest {
     public static void main(String[] args) {
         MyQueue<String> strMyQueue = new MyQueueImpl<>();
         MyQueue<Integer> intMyQueue = new MyQueueImpl<>();
-//        intMyQueue.
+
         System.out.println("Created 2 lists: strMyQueue, intMyQueue");
         System.out.printf("strMyQueue = %s Size: %d\n", strMyQueue, strMyQueue.size());
         System.out.printf("intMyQueue = %s Size: %d\n", intMyQueue, intMyQueue.size());
