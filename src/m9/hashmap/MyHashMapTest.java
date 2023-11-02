@@ -15,31 +15,36 @@ public class MyHashMapTest {
          myMap2.put(i, "S" + i);
         }
 
-        System.out.println();
+        System.out.println("\n Map with buckets size 5 and 20:");
         System.out.println("myMap = " + myMap);
         System.out.println("myMap.size() = " + myMap.size());
         System.out.println("myMap2 = " + myMap2);
         System.out.println("myMap2.size() = " + myMap2.size());
 
-        System.out.println();
+        System.out.println("\n Get Entry S10 and 10:");
         System.out.println("myMap.get(\"S10\") = " + myMap.get("S10"));
         System.out.println("myMap2.get(10) = " + myMap2.get(10));
         System.out.println("myMap.get(\"S4\") = " + myMap.get("S4"));
         System.out.println("myMap2.get(4) = " + myMap2.get(4));
 
-        System.out.println();
+        // change value
+        System.out.println("\n Change/replace value while adding an entry:");
+        System.out.println("myMap.put(\"S10\", 11111) = " + myMap.put("S10", 11111));
+        System.out.println("myMap.get(\"S10\") = " + myMap.get("S10"));
+        System.out.println("myMap2.put(10, \"S11111\") = " + myMap2.put(10, "S11111"));
+        System.out.println("myMap2.get(10) = " + myMap2.get(10));
+
+        System.out.println("\n Remove some entries:");
         System.out.println("myMap.remove(\"S1\") = " + myMap.remove("S1"));
         System.out.println("myMap2.remove(16) = " + myMap2.remove(16));
         System.out.println("myMap.remove(\"S5\") = " + myMap.remove("S5"));
         System.out.println("myMap2.remove(5) = " + myMap2.remove(5));
-
-        System.out.println();
         System.out.println("myMap = " + myMap);
         System.out.println("myMap.size() = " + myMap.size());
         System.out.println("myMap2 = " + myMap2);
         System.out.println("myMap2.size() = " + myMap2.size());
 
-        System.out.println();
+        System.out.println("\n Clear all buckets:");
         System.out.println("myMap.clear() = " + myMap.clear());
         System.out.println("myMap2.clear() = " + myMap2.clear());
         System.out.println("myMap = " + myMap);
