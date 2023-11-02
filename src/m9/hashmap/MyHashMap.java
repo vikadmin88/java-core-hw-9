@@ -140,18 +140,12 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
                 '}';
     }
 
-    //    public int hash(Object key) {
-//        int h;
-//        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-//    }
     protected static class Entry<K, V> {
-//        final int hash;
         final K key;
         V value;
         Entry<K, V> nextEntry;
 
         Entry(K key, V value, Entry<K, V> nextEntry) {
-//            this.hash = hash;
             this.key = key;
             this.value = value;
             this.nextEntry = nextEntry;
@@ -169,7 +163,6 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             this.value = newValue;
             return oldValue;
         }
-//        TODO try to set all protected
         protected Entry<K, V> getNextEntry() {
             return this.nextEntry;
         }
@@ -182,7 +175,6 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 
         public final int hashCode() {
             return Objects.hashCode(this.key);
-//            return Objects.hashCode(this.key) ^ Objects.hashCode(this.value);
         }
 
         public final boolean equals(Object o) {
@@ -192,7 +184,6 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
                 if (o instanceof Entry) {
                     Entry<?, ?> e = (Entry<?, ?>) o;
                     return Objects.equals(this.key, e.getKey());
-//                    return Objects.equals(this.key, e.getKey()) && Objects.equals(this.value, e.getValue());
                 }
                 return false;
             }

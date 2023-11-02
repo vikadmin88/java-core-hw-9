@@ -1,7 +1,6 @@
 package m9.linkedlist;
 
 import m9.MyList;
-import m9.MyQueue;
 
 import java.util.Arrays;
 
@@ -137,21 +136,6 @@ public class MyLinkedList<E> extends MyAbstractLinkedList<E> implements MyList<E
     public String toString() {
         return "{ " + Arrays.toString(toArray()) + " }";
     }
-
-//    public E peek() {
-//        return getFirstNode() != null ? getFirstNode().item : null;
-//    }
-
-//    public E poll() {
-//        if (getFirstNode() != null) {
-//            E element = getFirstNode().item;
-//            if (!removeNode(getFirstNode())) {
-//                return null;
-//            }
-//            return element;
-//        }
-//        return null;
-//    }
 
     protected Node<E> getFirstNode() {
         return this.first;
