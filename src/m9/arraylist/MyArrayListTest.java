@@ -62,17 +62,21 @@ public class MyArrayListTest {
 
         // Remove some String elements
         System.out.println("\nRemove some String elements:");
+        System.out.println("strArrayList = " + strArrayList);
         for (int i = 0; i <= 32; i += 5) {
             System.out.printf("strArrayList.remove(%d) = %b\n", i, strArrayList.remove(i));
         }
         System.out.println("strArrayList = " + strArrayList);
+        System.out.println("strArrayList.size() = " + strArrayList.size());
 
         // Remove some Integer elements
         System.out.println("\nRemove some Integer elements:");
+        System.out.println("intArrayList = " + intArrayList);
         for (int i = 0; i <= 30; i += 5) {
             System.out.printf("intArrayList.remove(%d) = %b\n", i, intArrayList.remove(i));
         }
         System.out.println("intArrayList = " + intArrayList);
+        System.out.println("intArrayList.size() = " + intArrayList.size());
 
         // Clear all elements
         System.out.println("\nClear all collections:");

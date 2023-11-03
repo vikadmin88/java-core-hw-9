@@ -28,12 +28,33 @@ public class MyArrayList<E> extends MyAbstractArrayList<E> implements MyList<E> 
     }
 
     public boolean remove(int index) {
-        if (index <= countUsedCell -1 && arrList[index] != null) {
-            arrList[index] = null;
+        return removeRepackArr(index);
+    }
+    private boolean removeRepackArr(int index) {
+        if (index < 0 || index > arrList.length - 1) {
+            return false;
+        }
+        Object[] arrResult;
+        if (index == 0) {
+            arrResult = Arrays.copyOfRange(arrList, index + 1, arrList.length);
+            arrList = arrResult;
+            countUsedCell--;
+            return true;
+        } else if (index == arrList.length - 1) {
+            arrResult = Arrays.copyOfRange(arrList, 0, arrList.length - 1);
+            arrList = arrResult;
             countUsedCell--;
             return true;
         }
-        return false;
+
+        Object[] arrLft, arrRgt;
+        arrLft = Arrays.copyOfRange(arrList, 0, index);
+        arrResult = Arrays.copyOf(arrLft, arrList.length - 1);
+        arrRgt = Arrays.copyOfRange(arrList, index + 1, arrList.length);
+        System.arraycopy(arrRgt, 0, arrResult,  index, arrRgt.length);
+        arrList = arrResult;
+        countUsedCell--;
+        return true;
     }
 
     public boolean clear() {
